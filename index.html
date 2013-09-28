@@ -6,12 +6,13 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-		<script type="text/javascript" src="config.js"></script>
+		<!-- <script type="text/javascript" src="config.js"></script> -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
 
 		<script type="text/javascript" src="http://platform.linkedin.com/in.js">
 			api_key: jasefg48mzha
   			onLoad: onLinkedInLoad
-			authorize: true
+			// authorize: true
 		</script>
 
 		<script type="text/javascript">
@@ -28,9 +29,17 @@
 			// Runs when the Profile() API call returns successfully
 			function displayProfiles(profiles) {
 				member = profiles.values[0];
-				// document.getElementById("profiles").innerHTML = 
-				// "<p id=\"" + member.id + "\">Hello " + member.firstName + " " + member.lastName + "</p>";
-
+				var url = "https://kit-demo.firebaseio.com/person/" + member.id;
+				var personRef = new Firebase(url);
+				personRef.on('value', function(snapshot) {
+					if(snapshot.val() === null) {
+						personRef.set({first: member.firstName, last: member.lastName});
+					} else {
+						personRef.update({first: member.firstName, last: member.lastName});
+					}
+					// redirect to edit page
+					document.location.href = '../kit-demo/edit.html';
+				});
 			}
 		</script>
 	</head>
@@ -38,9 +47,6 @@
 	<body>
 		<!-- Displays a button to let the viewer authenticate -->
 		<script type="IN/Login"></script>
-
-		<!-- Placeholder for the greeting -->
-		<div id="profiles"></div>
 	</body>
 </html>
 
