@@ -1,0 +1,55 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	font-family: Helvetica, serif; 
+}
+
+#content {
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+}
+
+#search {
+	width: 100%;
+	height: 10%;
+	position: fixed;
+	top: 0px;
+	font-size: 300%;
+}
+
+#page {
+	position: fixed;
+	top: 10%;
+	width: 100%;
+	height: auto;
+}
+
+#footer {
+	width: 100%;
+	height: 10%;
+	position: fixed;
+	bottom: 0px;
+	background-color: green;
+}
+
+.nav {
+	float: left;
+	width: 25%;
+	background-color: pink;
+}
+
+.nav:hover{
+	background-color: gray;
+}
+
+.nav p {
+	text-align: center;
+}
+
+
+
+
+

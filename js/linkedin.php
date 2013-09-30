@@ -1,13 +1,15 @@
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 	api_key: jasefg48mzha
 		onLoad: onLinkedInLoad
-	// authorize: true
+		// authorize: true
 </script>
 
 <script>
 	// Runs when the JavaScript framework is loaded
 	function onLinkedInLoad() {
 		IN.Event.on(IN, "auth", onLinkedInAuth);
+		// Use a custom login icon. 
+        // $('a[id*=li_ui_li_gen_]').css({marginBottom:'20px'}).html('<img src="test.png" height="31" width="200" border="0" />');    
 	}
 
 	// Runs when the viewer has authenticated
