@@ -31,19 +31,16 @@
 	position: relative;
 	top: 0px;
 	left: 0px;
-	background-color: pink;
+	background-color: light-gray;
 }
 
 .editor #pic {
 	position: absolute;
 	top: 10%;
-	z-index: 1;
 	/*more from javascript*/
 }
-/*
-.editor #pic #headshot {
-	display: block;
-	height: 100%;
-}
 
-*/
+.editor #name {
+	position: absolute;
+	text-align: center;
+}

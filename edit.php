@@ -34,12 +34,14 @@
 				});
 			});
 		</script>
-		<?php include"js/edit_js.php"; ?>
+		<?php
+			include"js/edit_js.php";
+		?>
 		<div class = "editor">
+			<h1 id="name"></h1>
 			<div id="pic">
 				<img id="headshot" src="">
 			</div>
-			<h1 id="name"></h1>
 			<input type="file" accept="image/*" id="file-upload">
 			<input type="text" name="bio" id="bio">
 			<input type="button" name="submit" id="submit">Save and Close</input>
