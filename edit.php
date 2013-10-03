@@ -23,7 +23,6 @@
 				$('#file-upload').on('change', function(e){
 					var file = e.target.files[0];
 					var reader = new FileReader();
-					// alert(3);
 					reader.onload = function(e) {
 						var filePayload = e.target.result;
 						personRef.update({picture: filePayload});
