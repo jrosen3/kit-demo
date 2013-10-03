@@ -7,7 +7,7 @@
 }
 
 h1 {
-	font-size: 24pt;
+	font-size: 3em;
 }
 
 /*.editor{
@@ -31,7 +31,7 @@ h1 {
 
 .editor {
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -40,9 +40,7 @@ h1 {
 
 .editor #pic {
 	position: absolute;
-	top: 5%;
-	left: 5%;
-	/*more from javascript*/
+	/*positioning from javascript*/
 }
 
 .editor #file-upload {
@@ -51,21 +49,33 @@ h1 {
 
 .editor #name {
 	position: absolute;
-	top: 5%;
-	/*more from javascript*/
+	text-align: center;
+	/*positioning from javascript*/
 	background-color: transparent;
+	width: 100%;
+	height: auto;
 }
 
 .editor #bio {
 	position: absolute;
-	top: 12%;
-	/*more from javascript*/
+	width: 60%;
+	height: 20%;
 	border: 0px;
+	padding: 3px;
+	font-size: 1.5em;
+	/*positioning from javascript*/
 }
 
-.editor #sumbit {
+.editor #button {
 	position: absolute;
-	top: 10px;
+	background-color: pink;
+	width: auto;
+	height: auto;
+	font-size: .75em;
+	text-align: center;
+	padding: .5em;
+	cursor: default;
+	/*positioning from javascript*/
 }
 
 

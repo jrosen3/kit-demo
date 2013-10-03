@@ -4,14 +4,17 @@
 	});
 
 	function resize(){
-		var e = $(".editor").width()
-		var w = 0.2 * e;
-		var h = (4/3) * w;
-		var l = (e - w) / 2;
+		var e = $(".editor").width();
+		var spacing = e * .03;
+
+		var img_w = 0.2 * e;
+		var img_h = (4/3) * img_w;
+		var img_l = (e - img_w) / 2;
 		$("#pic").css({
-			"width" : w+"px",
-			"height" : h+"px",
-			// "left" : l+"px"
+			"width" : img_w+"px",
+			"height" : img_h+"px",
+			"left" : img_l+"px",
+			"top" : spacing+"px"
 		});
 
 		$("#pic").imgLiquid({
@@ -20,17 +23,28 @@
 			horizontalAlign : 'center'
 		});
 
-		var o = w + (0.1 * e);
-		var box = e - o - (0.05 * e);
-
+		var name_t = $("#pic").position()['top'] + img_h + spacing;
 		$("#name").css({
-			"left" : o+"px"
+			"top" : name_t+"px"
 		});
 
+		var bio_l = (e - $("#bio").width()) / 2;
+		var bio_h = $("#name").position()['top'] + $("#name").height() + spacing;
 		$("#bio").css({
-			"left" : o+"px",
-			"width" : box+"px",
-			"height" : (h - (0.12 * e) + (0.07 * e))+"px"
+			"left" : bio_l+"px",
+			"top" : bio_h+"px"
+		});
+
+		var button_t = $("#bio").position()['top'] + $("#bio").height() + spacing;
+		var button_l = (e - $("#button").width()) / 2;
+		$("#button").css({
+			"top" : button_t+"px",
+			"left" : button_l+"px"
+		});
+
+		var e_h = $("#button").position()['top'] + $("#button").height() + spacing;
+		$(".editor").css({
+			"height" : e_h+"px"
 		});
 	};
 </script>

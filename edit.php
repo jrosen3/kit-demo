@@ -36,6 +36,12 @@
 				$("#pic").click(function() {
 					$("#file-upload").trigger('click');
 				});
+
+				$("#button").click(function() {
+					var bio = $("#bio").val()
+					personRef.update({bio: bio})
+					document.location.href = '../kit-demo/index.php';
+				});
 			});
 		</script>
 		<?php
@@ -48,7 +54,7 @@
 			<input type="file" accept="image/*" id="file-upload"></input>
 			<h1 id="name"></h1>
 			<textarea maxlength="1250" id="bio"></textarea>
-			<input type="button" name="submit" id="submit">Save and Close</input>
+			<div id="button">Save and Close</div>
 		</div>
 	</body>
 </html>
