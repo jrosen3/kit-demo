@@ -6,6 +6,10 @@
 	font-family: Helvetica Neue, Helvetica, serif;
 }
 
+h1 {
+	font-size: 24pt;
+}
+
 /*.editor{
 	width: 80%;
 	height: 80%;
@@ -31,16 +35,38 @@
 	position: relative;
 	top: 0px;
 	left: 0px;
-	background-color: light-gray;
+	background-color: #f6f6f6;
 }
 
 .editor #pic {
 	position: absolute;
-	top: 10%;
+	top: 5%;
+	left: 5%;
 	/*more from javascript*/
+}
+
+.editor #file-upload {
+	visibility: hidden;
 }
 
 .editor #name {
 	position: absolute;
-	text-align: center;
+	top: 5%;
+	/*more from javascript*/
+	background-color: transparent;
 }
+
+.editor #bio {
+	position: absolute;
+	top: 12%;
+	/*more from javascript*/
+	border: 0px;
+}
+
+.editor #sumbit {
+	position: absolute;
+	top: 10px;
+}
+
+
+

@@ -16,7 +16,7 @@
 				var personRef = new Firebase(url);
 				personRef.on('value', function(snapshot) {
 					$('#name').html(snapshot.val().first + ' ' + snapshot.val().last);
-					$('#bio').val(snapshot.val().bio);
+					$('#bio').html(snapshot.val().bio);
 					$('#headshot').attr('src', snapshot.val().picture);
 					resize();
 				});
@@ -32,18 +32,22 @@
 					$('#headshot').attr('src', filePayload);
 					resize();
 				});
+
+				$("#pic").click(function() {
+					$("#file-upload").trigger('click');
+				});
 			});
 		</script>
 		<?php
 			include"js/edit_js.php";
 		?>
-		<div class = "editor">
-			<h1 id="name"></h1>
+		<div class="editor">
 			<div id="pic">
 				<img id="headshot" src="">
 			</div>
-			<input type="file" accept="image/*" id="file-upload">
-			<input type="text" name="bio" id="bio">
+			<input type="file" accept="image/*" id="file-upload"></input>
+			<h1 id="name"></h1>
+			<textarea maxlength="1250" id="bio"></textarea>
 			<input type="button" name="submit" id="submit">Save and Close</input>
 		</div>
 	</body>
