@@ -4,9 +4,10 @@
 	})
 
 	function resize(){
-		var w = 0.3 * $(".editor").width();
+		var e = $(".editor").width()
+		var w = 0.3 * e;
 		var h = (4/3) * w;
-		var l = ($(".editor").width() - w) / 2;
+		var l = (e - w) / 2;
 		$("#pic").css({
 			"width" : w+"px",
 			"height" : h+"px",
