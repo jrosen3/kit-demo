@@ -1,7 +1,7 @@
 <script>
 	$(window).resize(function() {
 		resize();
-	})
+	});
 
 	function resize(){
 		var e = $(".editor").width()
@@ -13,5 +13,10 @@
 			"height" : h+"px",
 			"left" : l+"px"
 		});
-	}
+		$("#pic").imgLiquid({
+			fill : true,
+			verticalAlign : 'center',
+			horizontalAlign : 'center'
+		});
+	};
 </script>

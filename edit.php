@@ -9,9 +9,6 @@
 	</head>
 
 	<body>
-		<?php
-			include"js/edit_js.php";
-		?>
 		<script>
 			$(document).ready(function(){
 				var sessionID = getCookie("sessionID");
@@ -20,10 +17,9 @@
 				personRef.on('value', function(snapshot) {
 					$('#name').html(snapshot.val().first + ' ' + snapshot.val().last);
 					$('#bio').val(snapshot.val().bio);
-					$('#pic').attr('src', snapshot.val().picture);
+					$('#headshot').attr('src', snapshot.val().picture);
+					resize();
 				});
-
-				resize()
 
 				$('#file-upload').on('change', function(e){
 					var file = e.target.files[0];
@@ -33,12 +29,16 @@
 						personRef.update({picture: filePayload});
 					};
 					reader.readAsDataURL(file);
-					$('#pic').attr('src', snapshot.val().picture);
+					$('#headshot').attr('src', filePayload);
+					resize();
 				});
 			});
 		</script>
+		<?php include"js/edit_js.php"; ?>
 		<div class = "editor">
-			<img id="pic" src="">
+			<div id="pic">
+				<img id="headshot" src="">
+			</div>
 			<h1 id="name"></h1>
 			<input type="file" accept="image/*" id="file-upload">
 			<input type="text" name="bio" id="bio">

@@ -11,4 +11,4 @@
  <link rel="stylesheet" type="text/css" href="css/main.css">
 
 <!-- image liquid  -->
-<script src="js/imgLiquid-min.js"></script>
+<script src="z/imgLiquid-master/js/imgLiquid-min.js"></script>
