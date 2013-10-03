@@ -32,12 +32,14 @@
 				});
 			});
 		</script>
-		<section class = "editor">
+		<div class = "editor">
 		<h1 id="name"></h1>
+		<div class = "wrapper">
 		<img id="pic" src="">
+		</div>
 		<input type="file" accept="image/*" id="file-upload">
 		<input type="text" name="bio" id="bio">
-	</section>
+	</div>
 	</body>
 </html>
 
