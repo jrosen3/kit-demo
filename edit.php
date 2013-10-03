@@ -9,6 +9,9 @@
 	</head>
 
 	<body>
+		<?php
+			include"js/edit_js.php";
+		?>
 		<script>
 			$(document).ready(function(){
 				var sessionID = getCookie("sessionID");
@@ -19,6 +22,8 @@
 					$('#bio').val(snapshot.val().bio);
 					$('#pic').attr('src', snapshot.val().picture);
 				});
+
+				resize()
 
 				$('#file-upload').on('change', function(e){
 					var file = e.target.files[0];
@@ -33,13 +38,12 @@
 			});
 		</script>
 		<div class = "editor">
-		<h1 id="name"></h1>
-		<div class = "wrapper">
-		<img id="pic" src="">
+			<img id="pic" src="">
+			<h1 id="name"></h1>
+			<input type="file" accept="image/*" id="file-upload">
+			<input type="text" name="bio" id="bio">
+			<input type="button" name="submit" id="submit">Save and Close</input>
 		</div>
-		<input type="file" accept="image/*" id="file-upload">
-		<input type="text" name="bio" id="bio">
-	</div>
 	</body>
 </html>
 
