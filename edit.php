@@ -12,8 +12,8 @@
 		<script>
 			$(document).ready(function(){
 				var sessionID = getCookie("sessionID");
-				var url = "https://kit-demo.firebaseio.com/person/" + sessionID;
-				var personRef = new Firebase(url);
+				// var url = "https://kit-demo.firebaseio.com/person/" + sessionID;
+				var personRef = new Firebase(url+"/person/"+sessionID);
 				personRef.on('value', function(snapshot) {
 					$('#name').html(snapshot.val().first + ' ' + snapshot.val().last);
 					$('#bio').html(snapshot.val().bio);
@@ -42,6 +42,7 @@
 					personRef.update({bio: bio})
 					document.location.href = '../kit-demo/index.php';
 				});
+
 			});
 		</script>
 		<?php

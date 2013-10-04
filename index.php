@@ -11,22 +11,50 @@
 	</head>
 
 	<body>
-		<div id="content">
-			<input type="text" name="search" id="search" placeholder="Search">
-			
-			<div id="page">
-				<!-- Displays a button to let the viewer authenticate -->
-				<!-- <script type="IN/Login"></script> -->
-			</div>
+	<header>
+		<input type="text" id="search" autocomplete="off">
+	</header>
+		<script>
+			$(document).ready(function(){
+				resizeFooter();
 
-			<div id="footer">
-				<div class="nav"><script type="IN/Login"></script></div>
-				<div class="nav"><p>About</p></div>
-				<div class="nav"><p>Team</p></div>
-				<div class="nav"><p>Developers<p></div>
-			</div>
+				var searchRef = new Firebase(url);
+				var kitBase;
+				searchRef.on('value', function(snapshot) {
+					kitBase = snapshot.val();
+				});
+				$("#search").on('keyup', function(kitBase){
+					// search array and put html in div
+				});
+			});
+
+			$(window).resize(function() {
+				resizeFooter();
+			});
+
+			function resizeFooter(){
+				var button_width = ($(window).width() - 3) / 4;
+				$(".footertext").css({
+					"width" : button_width+"px"
+				});
+			};
+		</script>
+		<!-- <script type="IN/Login"></script> -->
+		<div id="results">
+			<table id ="display">
+				<thead></thead>
+				<tbody>
+					<tr id="LinkedIN">
+						<td class="thumbnail"></td>
+						<td class="name"></td>
+						<td class="words"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+		<?php include 'footer.php'; ?>
 	</body>
+	
 </html>
 
 

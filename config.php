@@ -12,3 +12,5 @@
 
 <!-- image liquid  -->
 <script src="z/imgLiquid-master/js/imgLiquid-min.js"></script>
+
+<script> var url = "https://kit-demo.firebaseio.com"</script>
