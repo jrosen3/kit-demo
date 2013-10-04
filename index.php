@@ -39,18 +39,14 @@
 			function buildTable(kitBase) {
 				var table;
 				$.each(kitBase, function(index, value){
+					var type = index;
 					$.each(value, function(index, value){
-						var id = index;
+						var id = type+"/"+index;
 						var name = value['first'] + ' ' + value['last'];
 						var bio = value['bio'].slice(0, 250) + '...';
 						var pic = value['picture'];
-						alert(bio);
-						//table += "<tr id='"+id+"'>";
-						// alert(value['first']);
-						// $.each(value, function(index, value){
-						// 	table += "<td>"+value+"</td>";
-						// 	alert(index + ":" + value);
-						// });
+						table = "<tr id='"+id+"'><td><img src='"+pic+"''></td><td>"+name+"</td><td>"+bio+"</td>";
+						$("#display").append(table);
 					});
 				});
 			};
@@ -67,21 +63,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- <tr>
-						<td class="thumbnail">this is a picture</td>
-						<td class="name">this is a name</td>
-						<td class="words"> this is a bio</td>
-					</tr>
-					<tr>
-						<td class="thumbnail">this is a pix</td>
-						<td class="name">this is a nombre</td>
-						<td class="words"> this is a bio</td>
-					</tr>
-					<tr>
-						<td class="thumbnail">this is a photo</td>
-						<td class="name">this is a name</td>
-						<td class="words"> this is a biography</td>
-					</tr> -->
+					
 				</tbody>
 			</table>
 		</div>
