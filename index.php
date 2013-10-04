@@ -19,12 +19,9 @@
 				resizeFooter();
 
 				var searchRef = new Firebase(url);
-				var kitBase;
 				searchRef.on('value', function(snapshot) {
 					kitBase = snapshot.val();
-				});
-				$("#search").on('keyup', function(kitBase){
-					// search array and put html in div
+					buildTable(kitBase);
 				});
 			});
 
@@ -38,6 +35,26 @@
 					"width" : button_width+"px"
 				});
 			};
+
+			function buildTable(kitBase) {
+				var table;
+				$.each(kitBase, function(index, value){
+					$.each(value, function(index, value){
+						var id = index;
+						var name = value['first'] + ' ' + value['last'];
+						var bio = value['bio'].slice(0, 250) + '...';
+						var pic = value['picture'];
+						alert(bio);
+						//table += "<tr id='"+id+"'>";
+						// alert(value['first']);
+						// $.each(value, function(index, value){
+						// 	table += "<td>"+value+"</td>";
+						// 	alert(index + ":" + value);
+						// });
+					});
+				});
+			};
+
 		</script>
 		<!-- <script type="IN/Login"></script> -->
 		<div id="results">
@@ -50,7 +67,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<!-- <tr>
 						<td class="thumbnail">this is a picture</td>
 						<td class="name">this is a name</td>
 						<td class="words"> this is a bio</td>
@@ -64,7 +81,7 @@
 						<td class="thumbnail">this is a photo</td>
 						<td class="name">this is a name</td>
 						<td class="words"> this is a biography</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>
