@@ -141,11 +141,21 @@ header {
 }
 
 #results{
-	background-color: black;
+	background-color: yellow;
 	width: 100%;
 	min-height: 80%;
 	top: 10%;
 	position: relative;
 	z-index: -1;
-	color: white;
 }
+
+#display {
+	width: 100%;
+	height: auto;
+	background-color: blue;
+}
+
+#display thead {
+	visibility: hidden;
+}
+

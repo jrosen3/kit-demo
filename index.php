@@ -41,13 +41,29 @@
 		</script>
 		<!-- <script type="IN/Login"></script> -->
 		<div id="results">
-			<table id ="display">
-				<thead></thead>
+			<table id ="display" data-filter="#search">
+				<thead>
+					<tr>
+						<th data-toggle="true">picture</th>
+						<th data-toggle="true">name</th>
+						<th data-toggle="true">bio</th>
+					</tr>
+				</thead>
 				<tbody>
-					<tr id="LinkedIN">
-						<td class="thumbnail"></td>
-						<td class="name"></td>
-						<td class="words"></td>
+					<tr>
+						<td class="thumbnail">this is a picture</td>
+						<td class="name">this is a name</td>
+						<td class="words"> this is a bio</td>
+					</tr>
+					<tr>
+						<td class="thumbnail">this is a pix</td>
+						<td class="name">this is a nombre</td>
+						<td class="words"> this is a bio</td>
+					</tr>
+					<tr>
+						<td class="thumbnail">this is a photo</td>
+						<td class="name">this is a name</td>
+						<td class="words"> this is a biography</td>
 					</tr>
 				</tbody>
 			</table>
