@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 	api_key: jasefg48mzha
-		onLoad: onLinkedInLoad
-		// authorize: true
+	onLoad: onLinkedInLoad
+	// authorize: true
 </script>
 
 <script>
@@ -28,9 +28,8 @@
 			} else {
 				personRef.update({first: member.firstName, last: member.lastName});
 			}
-			// redirect to edit page
 			setCookie("sessionID", member.id, 1);
-			document.location.href = '../kit-demo/edit.php';
+			// $(".editor").html('<?php include "modal.php" ?>;');
 		});
 	}
 </script>

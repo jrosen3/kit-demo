@@ -3,97 +3,95 @@
 <html>
 	<head>
 		<title>Kit-Demo</title>
-
-		<?php
-			include"config.php";
-			include"js/linkedin.php";
-		?>
+			<?php include"config.php"; ?>
+			<?php include"js/linkedin.php"; ?>
 	</head>
 
 	<body>
-	<header>
-		<input type="text" id="search" autocomplete="off">
-	</header>
+		<?php include"header.php"; ?>
+		<script src="js/buildTable.js"></script>
+		<script src="js/resizeIndex.js"></script>
+		<script src="js/helpers.js"></script>
 		<script>
 			$(document).ready(function(){
 				resizeFooter();
+				c_or_e();
 
 				var searchRef = new Firebase(url);
 				searchRef.on('value', function(snapshot) {
 					kitBase = snapshot.val();
 					buildTable(kitBase);
 				});
+
+
+				$("#editModal").on('shown.bs.modal', function(){
+					resize();
+				});
+
+				var sessionID = getCookie("sessionID");
+				var personRef = new Firebase(url+"/person/"+sessionID);
+				personRef.on('value', function(snapshot) {
+					$('#name').html(snapshot.val().first + ' ' + snapshot.val().last);
+					$('#bio').html(snapshot.val().bio);
+					$('#headshot').attr('src', snapshot.val().picture);
+				});
+
+				$('#file-upload').on('change', function(e){
+					var file = e.target.files[0];
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var filePayload = e.target.result;
+						personRef.update({picture: filePayload});
+					};
+					reader.readAsDataURL(file);
+					$('#headshot').attr('src', filePayload);
+					resize();
+				});
+
+				$("#pic").click(function() {
+					$("#file-upload").trigger('click');
+				});
+
+				$("#button").click(function() {
+					var bio = $("#bio").val()
+					personRef.update({bio: bio})
+					// document.location.href = '../kit-demo/index.php';
+				});
 			});
 
 			$(window).resize(function() {
 				resizeFooter();
+				resize();
 			});
-
-			function resizeFooter(){
-				var w_w = $(window).width();
-				var w_h = $(window).height();
-				var button_width = (w_w - 3) / 4;
-				$(".footertext").css({
-					"width" : button_width+"px"
-				});
-
-				var table_h = 0.10 * w_h;
-
-				$('.pix').css({
-					'width' : table_h+"px",
-					'height' : table_h+"px"
-				});
-
-				$('.biox').css({
-					'width' : (w_w - table_h)+"px",
-					'height' : table_h+"px"
-				});
-
-				$(".pix").imgLiquid({
-					fill : true,
-					verticalAlign : 'top',
-					horizontalAlign : 'center'
-				});
-
-				$("#search").css({
-					"background-size" : (0.75 * table_h)+"px",
-				})
-			};
-
-
-			function buildTable(kitBase) {
-				var table;
-				$.each(kitBase, function(index, value){
-					var type = index;
-					$.each(value, function(index, value){
-						var id = type+"/"+index;
-						var name = value['first'] + ' ' + value['last'];
-						var bio = value['bio'].slice(0, 250) + '...';
-						var pic = value['picture'];
-						table = "<tr class='t_row' id='"+id+"'><td><div class='pix'><img src='"+pic+"'></div></td><td><div class='biox'><span class='namex'>"+name+"</span></br> "+bio+"</div></td></tr>";
-						$("#display").append(table);
-						resizeFooter();
-					});
-				});
-			};
 		</script>
-		<!-- <script type="IN/Login"></script> -->
+
+		<script src="js/resizeEdit.js"></script>
+
+
+
+
+
+
+		
 		<div id="results">
 			<table id ="display" data-filter="#search">
 				<thead>
 					<tr>
 						<th data-toggle="true">picture</th>
-						<!-- <th data-toggle="true">name</th> -->
 						<th data-toggle="true">bio</th>
 					</tr>
 				</thead>
-				<tbody>	
+				<tbody>
+					<!-- dynamic -->	
 				</tbody>
 			</table>
 		</div>
-		<?php include 'footer.php'; ?>
+
+		<!-- modal -->
+		<?php include 'modal.php'; ?>
+		
+		<?php include 'footer.php'; ?>		
 	</body>
-	
 </html>
 
 

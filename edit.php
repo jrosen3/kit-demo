@@ -3,9 +3,8 @@
 <html>
 	<head>
 		<title>Kit-Demo | Edit</title>
-		<?php
-			include"config.php";
-		?>
+		<?php include"config.php"; ?>
+		<?php include"js/linkedin.php"; ?>
 	</head>
 
 	<body>
@@ -42,13 +41,16 @@
 					personRef.update({bio: bio})
 					document.location.href = '../kit-demo/index.php';
 				});
+			});
 
+			$(window).resize(function() {
+					resize();
 			});
 		</script>
-		<?php
-			include"js/edit_js.php";
-		?>
+		<script src="js/resizeEdit.js"></script>
+		
 		<div class="editor">
+			<script type="IN/Login"></script>
 			<div id="pic">
 				<img id="headshot" src="">
 			</div>
@@ -57,6 +59,8 @@
 			<textarea maxlength="1250" id="bio"></textarea>
 			<div id="button">Save and Close</div>
 		</div>
+
+
 	</body>
 </html>
 

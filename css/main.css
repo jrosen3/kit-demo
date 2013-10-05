@@ -40,6 +40,7 @@ h1 {
 
 .editor #pic {
 	position: absolute;
+	border-radius: 5px;
 	/*positioning from javascript*/
 }
 
@@ -58,11 +59,11 @@ h1 {
 
 .editor #bio {
 	position: absolute;
-	width: 60%;
-	height: 20%;
+	width: 80%;
+	height: 30%;
 	border: 0px;
 	padding: 3px;
-	font-size: 1.5em;
+	font-size: 1em;
 	/*positioning from javascript*/
 }
 
