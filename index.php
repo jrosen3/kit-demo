@@ -40,10 +40,10 @@
 					reader.onload = function(e) {
 						var filePayload = e.target.result;
 						updateRef.update({picture: filePayload});
+						$('#headshot').attr('src', filePayload);
+						resize();
 					};
 					reader.readAsDataURL(file);
-					$('#headshot').attr('src', filePayload);
-					resize();
 				});
 
 				$("#button").click(function() {
