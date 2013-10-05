@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 	api_key: jasefg48mzha
 	onLoad: onLinkedInLoad
-	// authorize: true
+	authorize: false
 </script>
 
 <script>
@@ -20,8 +20,7 @@
 	// Runs when the Profile() API call returns successfully
 	function displayProfiles(profiles) {
 		member = profiles.values[0];
-		var url = "https://kit-demo.firebaseio.com/person/" + member.id;
-		var personRef = new Firebase(url);
+		var personRef = new Firebase(url+"/person/"+member.id);
 		personRef.on('value', function(snapshot) {
 			if(snapshot.val() === null) {
 				personRef.set({first: member.firstName, last: member.lastName});
@@ -29,7 +28,8 @@
 				personRef.update({first: member.firstName, last: member.lastName});
 			}
 			setCookie("sessionID", member.id, 1);
-			// $(".editor").html('<?php include "modal.php" ?>;');
 		});
+		c_or_e();
+		setModal();
 	}
 </script>

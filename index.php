@@ -28,40 +28,38 @@
 					resize();
 				});
 
-				var sessionID = getCookie("sessionID");
-				var personRef = new Firebase(url+"/person/"+sessionID);
-				personRef.on('value', function(snapshot) {
-					$('#name').html(snapshot.val().first + ' ' + snapshot.val().last);
-					$('#bio').html(snapshot.val().bio);
-					$('#headshot').attr('src', snapshot.val().picture);
+				$("#editModal").on('show.bs.modal', function(){
+					setModal();
 				});
 
+				var ID = getCookie("sessionID");
+				var updateRef = new Firebase(url+"/person/"+ID);
 				$('#file-upload').on('change', function(e){
 					var file = e.target.files[0];
 					var reader = new FileReader();
 					reader.onload = function(e) {
 						var filePayload = e.target.result;
-						personRef.update({picture: filePayload});
+						updateRef.update({picture: filePayload});
 					};
 					reader.readAsDataURL(file);
 					$('#headshot').attr('src', filePayload);
 					resize();
 				});
 
-				$("#pic").click(function() {
-					$("#file-upload").trigger('click');
-				});
-
 				$("#button").click(function() {
 					var bio = $("#bio").val()
-					personRef.update({bio: bio})
-					// document.location.href = '../kit-demo/index.php';
+					updateRef.update({bio: bio})
+				});
+
+				$("#pic").click(function() {
+					$("#file-upload").trigger('click');
 				});
 			});
 
 			$(window).resize(function() {
 				resizeFooter();
 				resize();
+				c_or_e();
 			});
 		</script>
 
@@ -87,9 +85,8 @@
 			</table>
 		</div>
 
-		<!-- modal -->
 		<?php include 'modal.php'; ?>
-		
+
 		<?php include 'footer.php'; ?>		
 	</body>
 </html>

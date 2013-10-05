@@ -1,8 +1,8 @@
 <footer>
 	<nav>
 		<div class="footertext">
-			<a id="c_or_e" data-toggle="modal" href="#editModal">Connect</a>
-			<!-- <script type="IN/Login"></script> -->
+			<a id="login"><script type="IN/Login"></script></a>
+			<a id="c_or_e" data-toggle="modal" href="#editModal">Edit</a>
 		</div>
 		<div class="footertext">
 			<a href="#">About</a>
