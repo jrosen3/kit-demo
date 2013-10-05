@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 	api_key: jasefg48mzha
 	onLoad: onLinkedInLoad
-	authorize: false
+	authorize: true
 </script>
 
 <script>

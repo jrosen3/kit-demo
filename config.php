@@ -13,7 +13,9 @@
 <!-- image liquid  -->
 <script src="js/imgLiquid-master/js/imgLiquid-min.js"></script>
 
-<script> var url = "https://kit-demo.firebaseio.com"</script>
+<script> 
+	var url = "https://kit-demo.firebaseio.com";
+</script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">

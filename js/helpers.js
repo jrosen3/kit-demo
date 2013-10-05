@@ -16,4 +16,5 @@ function setModal(){
 		$('#bio').html(snapshot.val().bio);
 		$('#headshot').attr('src', snapshot.val().picture);
 	});
+	return personRef;
 }

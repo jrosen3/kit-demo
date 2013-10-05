@@ -14,8 +14,8 @@
 		<script src="js/helpers.js"></script>
 		<script>
 			$(document).ready(function(){
+				$("#c_or_e").hide();
 				resizeFooter();
-				c_or_e();
 
 				var searchRef = new Firebase(url);
 				searchRef.on('value', function(snapshot) {
@@ -32,14 +32,14 @@
 					setModal();
 				});
 
-				var ID = getCookie("sessionID");
-				var updateRef = new Firebase(url+"/person/"+ID);
 				$('#file-upload').on('change', function(e){
 					var file = e.target.files[0];
 					var reader = new FileReader();
+					var sessionID = getCookie("sessionID");
+					var picRef = new Firebase(url+"/person/"+sessionID);
 					reader.onload = function(e) {
 						var filePayload = e.target.result;
-						updateRef.update({picture: filePayload});
+						picRef.update({picture: filePayload});
 						$('#headshot').attr('src', filePayload);
 						resize();
 					};
@@ -48,7 +48,9 @@
 
 				$("#button").click(function() {
 					var bio = $("#bio").val()
-					updateRef.update({bio: bio})
+					var sessionID = getCookie("sessionID");
+					var bioRef = new Firebase(url+"/person/"+sessionID);
+					bioRef.update({bio: bio})
 				});
 
 				$("#pic").click(function() {
