@@ -25,3 +25,7 @@ function getCookie(c_name) {
 	
 	return c_value;
 }
+
+function deleteCookie(c_name) {
+    document.cookie = encodeURIComponent(c_name) + "=deleted; expires=" + new Date(0).toUTCString();
+}

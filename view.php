@@ -5,6 +5,7 @@
 		<title>Kit-Demo | View</title>
 		<?php	include"config.php"; ?>
 		<script src="js/resizeIndex.js"></script>
+		<script src="js/buildView.js"></script>
 	</head>
 
 	<body>
@@ -20,7 +21,14 @@
 				// var result = <?php echo json_encode($_POST); ?>;
 				// result = result['ben'];
 
+				// 
+				var result = getCookie("result_id");
+				var resultRef = new Firebase(url+"/"+result);
+				resultRef.on('value', function(snapshot) {
+					result_view = snapshot.val();
+					buildView(result_view);
 				});
+
 				
 			});
 

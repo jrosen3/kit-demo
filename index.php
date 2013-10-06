@@ -23,9 +23,7 @@
 				searchRef.on('value', function(snapshot) {
 					kitBase = snapshot.val();
 					buildTable(kitBase);
-					$("table").click(function() {
-					view(this);
-				});
+					
 				});
 
 
@@ -54,7 +52,7 @@
 				});
 
 				$("#button").click(function() {
-					var bio = $("#bio").val()
+					var bio = $("#bio").val();
 					var sessionID = getCookie("sessionID");
 					var bioRef = new Firebase(url+"/person/"+sessionID);
 					bioRef.update({bio: bio})
@@ -64,7 +62,8 @@
 					$("#file-upload").trigger('click');
 				});
 
-				
+				deleteCookie("result_id");
+
 			});
 
 				
@@ -77,9 +76,10 @@
 
 			function view(e){
 			var i = e.id;
-			alert(i);	
-			// var view_id = setCookie()
-			// window.location.href = "../kit-demo/view.php";
+			var t = $(e).parent().parent().attr("id");
+			alert(t);	
+			setCookie("result_id", t, 1);
+			window.location.href = "../kit-demo/view.php";
 				
 		};
 
@@ -93,8 +93,12 @@
 
 
 	<div id="tester">
-		<div id="results">
-			<table id ="display" data-filter="#search">
+		<!-- <div id="results">
+			
+
+
+		</div> -->
+		<table id ="display" data-filter="#search">
 				<thead>
 					<tr>
 						<th data-toggle="true">picture</th>
@@ -105,7 +109,6 @@
 					<!-- dynamic -->	
 				</tbody>
 			</table>
-		</div>
 	</div>
 
 		<?php include 'modal.php'; ?>
