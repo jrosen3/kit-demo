@@ -16,4 +16,5 @@ function buildTable(kitBase) {
 	});
 	$("#display").html(table);
 	resizeFooter();
+	
 };

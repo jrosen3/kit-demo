@@ -14,6 +14,8 @@
 		<script src="js/helpers.js"></script>
 		<script>
 			$(document).ready(function(){
+				
+
 				$("#c_or_e").hide();
 				resizeFooter();
 
@@ -21,6 +23,9 @@
 				searchRef.on('value', function(snapshot) {
 					kitBase = snapshot.val();
 					buildTable(kitBase);
+					$("table").click(function() {
+					view(this);
+				});
 				});
 
 
@@ -44,6 +49,8 @@
 						resize();
 					};
 					reader.readAsDataURL(file);
+
+
 				});
 
 				$("#button").click(function() {
@@ -56,13 +63,26 @@
 				$("#pic").click(function() {
 					$("#file-upload").trigger('click');
 				});
+
+				
 			});
+
+				
 
 			$(window).resize(function() {
 				resizeFooter();
 				resize();
 				c_or_e();
 			});
+
+			function view(e){
+			var i = e.id;
+			alert(i);	
+			// var view_id = setCookie()
+			// window.location.href = "../kit-demo/view.php";
+				
+		};
+
 		</script>
 
 		<script src="js/resizeEdit.js"></script>
@@ -72,7 +92,7 @@
 
 
 
-		
+	<div id="tester">
 		<div id="results">
 			<table id ="display" data-filter="#search">
 				<thead>
@@ -86,6 +106,7 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 
 		<?php include 'modal.php'; ?>
 
