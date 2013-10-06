@@ -176,6 +176,21 @@ header {
 	font-weight: bold;
 }
 
+/*this is not final, solely until we figure out why the results div broke the table*/
 #tester {
 	margin-top: 8%;
+}
+
+
+
+/*view page styling*/
+#viewpic {
+	height: 30%;
+	width: 30%;
+	background-color: magenta;
+}
+
+#viewpic img{
+	height: auto;
+	border-radius: 5px;
 }

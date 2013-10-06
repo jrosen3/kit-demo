@@ -62,7 +62,6 @@
 					$("#file-upload").trigger('click');
 				});
 
-				deleteCookie("result_id");
 
 			});
 
