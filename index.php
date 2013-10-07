@@ -75,9 +75,10 @@
 
 			function view(e){
 			var i = e.id;
-			var t = $(e).parent().parent().attr("id");
-			alert(t);	
-			setCookie("result_id", t, 1);
+			// this is for the button
+			// var t = $(e).parent().parent().parent().attr("id");
+			alert(i);	
+			setCookie("result_id",i, 1);
 			window.location.href = "../kit-demo/view.php";
 				
 		};
@@ -91,13 +92,9 @@
 
 
 
-	<div id="tester">
-		<!-- <div id="results">
-			
-
-
-		</div> -->
-		<table id ="display" data-filter="#search">
+	<!-- <div id="tester"> -->
+		<div id="results">
+			<table id ="display" data-filter="#search">
 				<thead>
 					<tr>
 						<th data-toggle="true">picture</th>
@@ -109,6 +106,10 @@
 				</tbody>
 			</table>
 	</div>
+
+
+		<!-- </div> 
+		 -->
 
 		<?php include 'modal.php'; ?>
 
