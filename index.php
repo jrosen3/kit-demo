@@ -128,7 +128,12 @@
 	<!-- <div id="tester"> -->
 		<div id="results">
 			<div id="welcome">
-				<p>welcome to the site, learn more </p>
+				<div id="left" class="welcome">
+					Find a Kit
+				</div>
+				<div class="welcome">
+					Make a Kit
+				</div>
 			</div>
 		<div id = "view_result">
 			<div id = "viewpic"></div>
