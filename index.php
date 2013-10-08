@@ -72,25 +72,21 @@
 					$("#view_result").hide();
 					icon();
 				});
-
-				function icon(){
-					var content = $("#search").val();
-					// alert(content);
-					if (content === '') {
-						$("#search").css({
-							"background-image": "url('img/icon.png')"
-						});
-					} else {
-						$("#search").css({
-							"background-image": "none"
-						});
-					}
-				};
-
-
-
 			});
 
+			function icon(){
+				var content = $("#search").val();
+				// alert(content);
+				if (content === '') {
+					$("#search").css({
+						"background-image": "url('img/icon.png')"
+					});
+				} else {
+					$("#search").css({
+						"background-image": "none"
+					});
+				}
+			};
 				
 
 			$(window).resize(function() {
@@ -106,6 +102,7 @@
 					result_view = snapshot.val();
 					$("#view_result").show();
 					buildView(result_view);
+					icon();
 				});
 	
 			// this is for the button
