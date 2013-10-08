@@ -9,7 +9,9 @@ function buildTable(kitBase) {
 		$.each(value, function(index, value){
 			var id = type+"/"+index;
 			var name = value['first'] + ' ' + value['last'];
-			var bio = value['bio'].slice(0, 150) + '...';
+			var bio = value['bio'].split(" ");
+			bio = bio.slice(0,37);
+			bio = bio.join(" ") + "...";
 			var pic = value['picture'];
 			table += "<tr class='t_row' id='"+id+"' onclick='view(this)'><td><div class='pix'><img src='"+pic+"'></div></td><td><div class='biox'><span class='namex'>"+name+"</span></br> "+bio+"</div></td></tr>";
 		});
