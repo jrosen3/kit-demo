@@ -12,12 +12,14 @@
 		<script src="js/buildTable.js"></script>
 		<script src="js/resizeIndex.js"></script>
 		<script src="js/helpers.js"></script>
+		<script src="js/buildView.js"></script>
 		<script>
 			$(document).ready(function(){
 				
 
 				$("#c_or_e").hide();
 				resizeFooter();
+				icon();
 
 				var searchRef = new Firebase(url);
 				searchRef.on('value', function(snapshot) {
@@ -62,6 +64,30 @@
 					$("#file-upload").trigger('click');
 				});
 
+				$("#display").hide();
+				$("#view_result").hide();
+				$("#search").on('keyup', function(){
+					$("#display").show();
+					$("#welcome").hide();
+					$("#view_result").hide();
+					icon();
+				});
+
+				function icon(){
+					var content = $("#search").val();
+					// alert(content);
+					if (content === '') {
+						$("#search").css({
+							"background-image": "url('img/icon.png')"
+						});
+					} else {
+						$("#search").css({
+							"background-image": "none"
+						});
+					}
+				};
+
+
 
 			});
 
@@ -74,12 +100,18 @@
 			});
 
 			function view(e){
-			var i = e.id;
+			var result = e.id;
+			var resultRef = new Firebase(url+"/"+result);
+				resultRef.on('value', function(snapshot) {
+					result_view = snapshot.val();
+					$("#view_result").show();
+					buildView(result_view);
+				});
+	
 			// this is for the button
 			// var t = $(e).parent().parent().parent().attr("id");
-			alert(i);	
-			setCookie("result_id",i, 1);
-			window.location.href = "../kit-demo/view.php";
+			// setCookie("result_id",i, 1);
+			// window.location.href = "../kit-demo/view.php";
 				
 		};
 
@@ -94,6 +126,13 @@
 
 	<!-- <div id="tester"> -->
 		<div id="results">
+			<div id="welcome">
+				<p>welcome to the site, learn more </p>
+			</div>
+		<div id = "view_result">
+			<div id = "viewpic"></div>
+			<div id = "viewbio"></div>
+		</div>
 			<table id ="display" data-filter="#search">
 				<thead>
 					<tr>
@@ -106,6 +145,8 @@
 				</tbody>
 			</table>
 	</div>
+
+	
 
 
 		<!-- </div> 

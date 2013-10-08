@@ -129,7 +129,7 @@ header {
 	font-size: 3em;
 	border-bottom: 1px solid black;
 	text-decoration: none;
-	background-image: url("../img/icon.png"); 
+	/*background-image: url("../img/icon.png"); */
 	background-repeat: no-repeat;
 	background-position: 1%;
 	background-color: pink;
