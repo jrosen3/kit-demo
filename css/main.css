@@ -88,6 +88,7 @@ footer {
    width:100%;
    background:#999;
    display: inline;
+   z-index: 2000;
    
 }
 
@@ -120,6 +121,7 @@ header {
    height:10%;
    width:100%;
    background:#999;
+   z-index: 2000;
    
 }
 
@@ -133,6 +135,7 @@ header {
 	background-repeat: no-repeat;
 	background-position: 1%;
 	background-color: pink;
+	/*z-index: 1;*/
 }
 
 #search:focus{
@@ -143,10 +146,10 @@ header {
 #results{
 	background-color: yellow;
 	width: 100%;
-	min-height: 80%;
+	height: 80%;
 	top: 10%;
 	position: relative;
-	z-index: 0;
+	/*z-index: 0;*/
 }
 
 #display {
@@ -185,12 +188,22 @@ header {
 
 /*view page styling*/
 #viewpic {
-	height: 30%;
-	width: 30%;
-	background-color: magenta;
+	position: relative;
+	float: left;
 }
 
 #viewpic img{
-	height: auto;
 	border-radius: 5px;
+}
+
+#viewbio {
+	position: relative;
+	background-color: cyan;
+	float: left;
+}
+
+#view_result{
+	width: 100%;
+	height: 100%;
+	position: relative;
 }

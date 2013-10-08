@@ -81,6 +81,8 @@
 					$("#search").css({
 						"background-image": "url('img/icon.png')"
 					});
+					$("#display").hide();
+					$("#welcome").show();
 				} else {
 					$("#search").css({
 						"background-image": "none"
@@ -91,6 +93,7 @@
 
 			$(window).resize(function() {
 				resizeFooter();
+				resizeView()
 				resize();
 				c_or_e();
 			});
@@ -100,6 +103,7 @@
 			var resultRef = new Firebase(url+"/"+result);
 				resultRef.on('value', function(snapshot) {
 					result_view = snapshot.val();
+					$("#display").hide();
 					$("#view_result").show();
 					buildView(result_view);
 					icon();
@@ -130,7 +134,7 @@
 			<div id = "viewpic"></div>
 			<div id = "viewbio"></div>
 		</div>
-			<table id ="display" data-filter="#search">
+			<table id ="display" data-filter="#search" data-filter-minimum="1">
 				<thead>
 					<tr>
 						<th data-toggle="true">picture</th>
