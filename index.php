@@ -125,7 +125,6 @@
 
 
 
-	<!-- <div id="tester"> -->
 		<div id="results">
 			<div id="welcome">
 				<div id="left" class="welcome">
@@ -135,10 +134,12 @@
 					Make a Kit
 				</div>
 			</div>
-		<div id = "view_result">
-			<div id = "viewpic"></div>
-			<div id = "viewbio"></div>
-		</div>
+
+			<div id = "view_result">
+				<div id = "viewpic"></div>
+				<div id = "viewbio"></div>
+			</div>
+
 			<table id ="display" data-filter="#search" data-filter-minimum="1">
 				<thead>
 					<tr>
@@ -150,13 +151,7 @@
 					<!-- dynamic -->	
 				</tbody>
 			</table>
-	</div>
-
-	
-
-
-		<!-- </div> 
-		 -->
+		</div>
 
 		<?php include 'modal.php'; ?>
 
