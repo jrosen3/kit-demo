@@ -74,6 +74,14 @@
 				});
 			});
 
+			$(window).resize(function() {
+				resizeFooter();
+				resizeView()
+				resize();
+				c_or_e();
+			});
+
+			// 
 			function icon(){
 				var content = $("#search").val();
 				// alert(content);
@@ -89,35 +97,19 @@
 					});
 				}
 			};
-				
-
-			$(window).resize(function() {
-				resizeFooter();
-				resizeView()
-				resize();
-				c_or_e();
-			});
 
 			function view(e){
-			var result = e.id;
-			var resultRef = new Firebase(url+"/"+result);
+				var result = e.id;
+				var resultRef = new Firebase(url+"/"+result);
 				resultRef.on('value', function(snapshot) {
 					result_view = snapshot.val();
 					$("#display").hide();
 					$("#view_result").show();
 					buildView(result_view);
 					icon();
-				});
-	
-			// this is for the button
-			// var t = $(e).parent().parent().parent().attr("id");
-			// setCookie("result_id",i, 1);
-			// window.location.href = "../kit-demo/view.php";
-				
-		};
-
+				});	
+			};
 		</script>
-
 		<script src="js/resizeEdit.js"></script>
 
 
